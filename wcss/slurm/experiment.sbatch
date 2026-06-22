@@ -1,0 +1,18 @@
+#!/bin/bash
+#SBATCH --job-name=specedge-repro
+#SBATCH --output=PLACEHOLDER_LOG_DIR/slurm-%x-%j.out
+#SBATCH --error=PLACEHOLDER_LOG_DIR/slurm-%x-%j.err
+#SBATCH --account=PLACEHOLDER_ACCOUNT
+#SBATCH -p PLACEHOLDER_PARTITION
+#SBATCH -N 1
+#SBATCH -c PLACEHOLDER_CPUS
+#SBATCH --mem=PLACEHOLDER_MEM
+#SBATCH --time=PLACEHOLDER_TIME
+#SBATCH --gres=gpu:hopper:PLACEHOLDER_GPUS
+
+set -euo pipefail
+
+RUN_META="PLACEHOLDER_RUN_META"
+SCRIPT_DIR="PLACEHOLDER_SCRIPT_DIR"
+
+bash "${SCRIPT_DIR}/run_in_job.sh" "${RUN_META}"

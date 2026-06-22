@@ -1,0 +1,54 @@
+# Kaskada 3-tier (M0 CPU -> M1 GPU -> M2 chmura/gRPC) na WCSS.
+#
+# Użycie (z katalogu specedge/):
+#   make -f wcss/Makefile.cloud3 help
+#   make -f wcss/Makefile.cloud3 submit                  # sbatch, Qwen3-14B
+#   make -f wcss/Makefile.cloud3 submit TARGET=Qwen/Qwen3-32B
+#   make -f wcss/Makefile.cloud3 local                   # interaktywnie na węźle z 2 GPU
+#   make -f wcss/Makefile.cloud3 metrics EXP=<job_id>    # po zakończeniu joba
+#
+# Zmienne: TARGET (model M2), EXP (nazwa runu = podkatalog wyniku), GPU.
+
+TARGET ?= Qwen/Qwen3-14B
+EXP    ?= run
+GPU    ?= H100_94
+RESULT_DIR := result/cloud3/$(EXP)
+
+SUBSETS := multi_turn translation summarization question_answering mathematical_reasoning retrieval
+
+.PHONY: help submit local status logs metrics metrics-subsets
+
+help:
+	@echo "Kaskada 3-tier (cloud3) — cele make:"
+	@echo ""
+	@echo "  submit            sbatch wcss/slurm/cloud3.sbatch (TARGET=$(TARGET))"
+	@echo "  local             uruchom interaktywnie na węźle (bash script/cloud3.sh)"
+	@echo "  metrics           metryki 'overall' dla EXP=$(EXP) (GPU=$(GPU))"
+	@echo "  metrics-subsets   metryki dla wszystkich subsetów specbench"
+	@echo "  status            kolejka SLURM (squeue --me)"
+	@echo "  logs              ostatni log joba cloud3"
+	@echo ""
+	@echo "Zmienne: TARGET=$(TARGET)  EXP=$(EXP)  GPU=$(GPU)"
+	@echo "Wynik:   $(RESULT_DIR)"
+	@echo "Szczegóły: wcss/README_cloud3.md"
+
+submit:
+	sbatch --export=ALL,CLOUD3_TARGET_MODEL=$(TARGET) wcss/slurm/cloud3.sbatch
+
+local:
+	CLOUD3_TARGET_MODEL=$(TARGET) CLOUD3_EXP_NAME=$(EXP) bash script/cloud3.sh
+
+status:
+	squeue --me
+
+logs:
+	@ls -t wcss/slurm_logs/cloud3-*.out 2>/dev/null | head -1 | xargs -r tail -n 40
+
+metrics:
+	PYTHONPATH=src python src/metric/specedge.py -d $(RESULT_DIR) -s overall --gpu $(GPU)
+
+metrics-subsets:
+	@for s in overall $(SUBSETS); do \
+		echo "=== $$s ==="; \
+		PYTHONPATH=src python src/metric/specedge.py -d $(RESULT_DIR) -s $$s --gpu $(GPU); \
+	done

@@ -1,0 +1,887 @@
+{
+  "args": {
+    "draft_model": "Qwen/Qwen3-0.6B",
+    "verify_model": "Qwen/Qwen3-4B",
+    "draft_device": "cpu",
+    "verify_device": "cuda:0",
+    "draft_dtype": "bf16",
+    "verify_dtype": "fp16",
+    "dataset": null,
+    "num_prompts": 6,
+    "max_len": 2048,
+    "max_new_tokens": 64,
+    "max_n_beams": 8,
+    "max_beam_len": 8,
+    "max_branch_width": 4,
+    "max_budget": 32,
+    "temperature": 0.0,
+    "seed": 42,
+    "json_out": "result\\bench_cpu_gpu.json"
+  },
+  "summary": {
+    "prompts": 6,
+    "total_generated_tokens": 408,
+    "node_acceptance_rate": 0.4989346590909091,
+    "node_accept": 1405,
+    "node_total": 2816,
+    "tokens_per_cycle_mean": 4.636363636363637,
+    "tokens_per_cycle_p50": 4.0,
+    "tokens_per_cycle_max": 9,
+    "draft_ms_mean": 1312.713989764399,
+    "verify_ms_mean": 125.41560047323054,
+    "ttft_ms_mean": 1941.939549986273,
+    "itl_ms_p50": 194.18413125094958,
+    "itl_ms_p95": 762.3918000026606,
+    "itl_ms_mean": 305.5908363897607,
+    "decode_tokens_per_sec": 3.272349432378158,
+    "peak_vram_mib": 8290.3935546875
+  },
+  "per_prompt": [
+    {
+      "text": "The capital of Poland is Warsaw. The capital of Germany is Berlin. The capital of the Czech Republic is Prague. The capital of Austria is Vienna. The capital of Slovakia is Bratislava. The capital of Hungary is Budapest. The capital of Belgium is Brussels. The capital of the Netherlands is Amsterdam. The capital of France is Paris. The",
+      "num_generated": 65,
+      "accepted_per_cycle": [
+        6,
+        8,
+        8,
+        9,
+        9,
+        1,
+        5,
+        9,
+        1,
+        9
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 3054.469699971378,
+          "draft_ms": 2042.0690999599174,
+          "verify_ms": 973.3848876953125,
+          "tokens": 6,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1549.1009999532253,
+          "draft_ms": 1464.120699907653,
+          "verify_ms": 64.81340789794922,
+          "tokens": 8,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1521.1227000690997,
+          "draft_ms": 1394.1606000298634,
+          "verify_ms": 107.17049407958984,
+          "tokens": 8,
+          "node_accept": 19,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1511.858900077641,
+          "draft_ms": 1400.7107999641448,
+          "verify_ms": 88.40038299560547,
+          "tokens": 9,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1554.7359000192955,
+          "draft_ms": 1457.8394999261945,
+          "verify_ms": 75.99142456054688,
+          "tokens": 9,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1345.7298000575975,
+          "draft_ms": 1203.1933000544086,
+          "verify_ms": 122.17660522460938,
+          "tokens": 1,
+          "node_accept": 13,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1490.1144000468776,
+          "draft_ms": 1370.0831000460312,
+          "verify_ms": 98.17823791503906,
+          "tokens": 5,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1462.6766999717802,
+          "draft_ms": 1355.204200022854,
+          "verify_ms": 86.24422454833984,
+          "tokens": 9,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1425.1400000648573,
+          "draft_ms": 1327.9925000388175,
+          "verify_ms": 76.3304672241211,
+          "tokens": 1,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1563.4299999801442,
+          "draft_ms": 1396.7459999257699,
+          "verify_ms": 146.20521545410156,
+          "tokens": 9,
+          "node_accept": 19,
+          "node_total": 32
+        }
+      ]
+    },
+    {
+      "text": "Explain in one sentence why the sky is blue. The sky appears blue because molecules in the Earth's atmosphere scatter shorter wavelengths of light, like blue, more efficiently than longer wavelengths, such as red, during sunlight scattering. \n\nThis explanation is correct. However, to make it more concise and accurate, we can refine it slightly. The sky appears blue because the Earth's atmosphere scatters shorter wavelengths of sunlight",
+      "num_generated": 71,
+      "accepted_per_cycle": [
+        3,
+        3,
+        6,
+        1,
+        7,
+        6,
+        4,
+        1,
+        2,
+        3,
+        3,
+        2,
+        2,
+        6,
+        2,
+        2,
+        2,
+        7,
+        9
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 1862.8303000004962,
+          "draft_ms": 1678.1448000110686,
+          "verify_ms": 165.37759399414062,
+          "tokens": 3,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1638.6892000446096,
+          "draft_ms": 1551.02050001733,
+          "verify_ms": 68.1401596069336,
+          "tokens": 3,
+          "node_accept": 13,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1679.1688000084832,
+          "draft_ms": 1531.4293999690562,
+          "verify_ms": 125.4922866821289,
+          "tokens": 6,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1203.6539000691846,
+          "draft_ms": 1102.7185999555513,
+          "verify_ms": 81.076416015625,
+          "tokens": 1,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1507.2469000006095,
+          "draft_ms": 1412.4603000236675,
+          "verify_ms": 74.47062683105469,
+          "tokens": 7,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1573.4684000490233,
+          "draft_ms": 1418.719300068915,
+          "verify_ms": 129.55197143554688,
+          "tokens": 6,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1788.527199998498,
+          "draft_ms": 1451.7745999619365,
+          "verify_ms": 315.9339904785156,
+          "tokens": 4,
+          "node_accept": 8,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1321.037899935618,
+          "draft_ms": 1236.1209999071434,
+          "verify_ms": 65.48457336425781,
+          "tokens": 1,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1571.426600101404,
+          "draft_ms": 1429.6397001016885,
+          "verify_ms": 120.01363372802734,
+          "tokens": 2,
+          "node_accept": 19,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1545.1834999257699,
+          "draft_ms": 1438.3120000129566,
+          "verify_ms": 86.52464294433594,
+          "tokens": 3,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1141.9128000270575,
+          "draft_ms": 1008.6928999517113,
+          "verify_ms": 112.33363342285156,
+          "tokens": 3,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1231.656500021927,
+          "draft_ms": 1109.7844999749213,
+          "verify_ms": 100.54348754882812,
+          "tokens": 2,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1524.7836000053212,
+          "draft_ms": 1310.7242999831215,
+          "verify_ms": 192.372802734375,
+          "tokens": 2,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1086.6228000959381,
+          "draft_ms": 1003.9701000787318,
+          "verify_ms": 61.02073669433594,
+          "tokens": 6,
+          "node_accept": 13,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1142.8962999489158,
+          "draft_ms": 1021.1133999982849,
+          "verify_ms": 101.03971099853516,
+          "tokens": 2,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1447.68149999436,
+          "draft_ms": 1336.2336000427604,
+          "verify_ms": 90.0902099609375,
+          "tokens": 2,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1778.340500080958,
+          "draft_ms": 1431.9736000616103,
+          "verify_ms": 326.4335021972656,
+          "tokens": 2,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1410.2887000190094,
+          "draft_ms": 1327.9947999399155,
+          "verify_ms": 61.523582458496094,
+          "tokens": 7,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1567.0536999823526,
+          "draft_ms": 1410.8528000069782,
+          "verify_ms": 134.602783203125,
+          "tokens": 9,
+          "node_accept": 25,
+          "node_total": 32
+        }
+      ]
+    },
+    {
+      "text": "List three common sorting algorithms. Also, explain the time complexity of each in the best, average, and worst cases. Additionally, explain the difference between a stack and a queue. Also, explain the difference between a linked list and an array. Finally, explain the difference between a binary search tree and a binary heap. Also, explain the difference between a recursive and",
+      "num_generated": 67,
+      "accepted_per_cycle": [
+        5,
+        4,
+        2,
+        8,
+        7,
+        5,
+        9,
+        7,
+        6,
+        6,
+        8
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 1401.2589000631124,
+          "draft_ms": 1208.2206000341102,
+          "verify_ms": 174.5487060546875,
+          "tokens": 5,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1257.2800000198185,
+          "draft_ms": 1176.9513000035658,
+          "verify_ms": 60.66239929199219,
+          "tokens": 4,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1329.0380999678746,
+          "draft_ms": 1201.3336999807507,
+          "verify_ms": 108.06275177001953,
+          "tokens": 2,
+          "node_accept": 11,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1485.1024999516085,
+          "draft_ms": 1362.7002999419346,
+          "verify_ms": 102.51897430419922,
+          "tokens": 8,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1273.8824000116438,
+          "draft_ms": 1167.068999959156,
+          "verify_ms": 86.86000061035156,
+          "tokens": 7,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1495.1187000842765,
+          "draft_ms": 1399.6609000023454,
+          "verify_ms": 75.727294921875,
+          "tokens": 5,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1536.5934000583366,
+          "draft_ms": 1387.5619999598712,
+          "verify_ms": 128.69017028808594,
+          "tokens": 9,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1520.861600060016,
+          "draft_ms": 1403.8262000540271,
+          "verify_ms": 96.17753601074219,
+          "tokens": 7,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1490.2092999545857,
+          "draft_ms": 1383.8447999441996,
+          "verify_ms": 85.9787826538086,
+          "tokens": 6,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1594.6317000780255,
+          "draft_ms": 1416.0206000087783,
+          "verify_ms": 158.16844177246094,
+          "tokens": 6,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1527.2722000954673,
+          "draft_ms": 1399.6761000016704,
+          "verify_ms": 103.91510772705078,
+          "tokens": 8,
+          "node_accept": 16,
+          "node_total": 32
+        }
+      ]
+    },
+    {
+      "text": "Write a haiku about autumn. Use the 5-7-5 structure. Make sure to include a seasonal reference. Here's a sample: Crisp air, golden leaves, the breeze whispers through the trees. (5-7-5)\nOkay, so I need to write a haiku about autumn following the 5-7-5 structure.",
+      "num_generated": 66,
+      "accepted_per_cycle": [
+        3,
+        8,
+        5,
+        1,
+        2,
+        3,
+        2,
+        4,
+        3,
+        1,
+        1,
+        5,
+        9,
+        9,
+        1,
+        9
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 1390.2331000426784,
+          "draft_ms": 1202.200899948366,
+          "verify_ms": 168.52479553222656,
+          "tokens": 3,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1473.9839000394568,
+          "draft_ms": 1390.9993999404833,
+          "verify_ms": 64.00303649902344,
+          "tokens": 8,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1387.561299954541,
+          "draft_ms": 1236.6309999488294,
+          "verify_ms": 131.1255645751953,
+          "tokens": 5,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1109.3673999421299,
+          "draft_ms": 982.6868999516591,
+          "verify_ms": 106.8344955444336,
+          "tokens": 1,
+          "node_accept": 8,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 925.158999976702,
+          "draft_ms": 818.6940000159666,
+          "verify_ms": 86.29305267333984,
+          "tokens": 2,
+          "node_accept": 8,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1150.675000040792,
+          "draft_ms": 991.1588999675587,
+          "verify_ms": 140.78646850585938,
+          "tokens": 3,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1140.1266999309883,
+          "draft_ms": 1026.9654999719933,
+          "verify_ms": 92.88809967041016,
+          "tokens": 2,
+          "node_accept": 9,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1088.2505000336096,
+          "draft_ms": 981.9050999358296,
+          "verify_ms": 85.59305572509766,
+          "tokens": 4,
+          "node_accept": 11,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1397.5299999583513,
+          "draft_ms": 1215.3817999642342,
+          "verify_ms": 161.21353149414062,
+          "tokens": 3,
+          "node_accept": 5,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1161.2224999116734,
+          "draft_ms": 1022.4984999513254,
+          "verify_ms": 118.58073425292969,
+          "tokens": 1,
+          "node_accept": 4,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1430.2069999976084,
+          "draft_ms": 1322.2800999647006,
+          "verify_ms": 87.64864349365234,
+          "tokens": 1,
+          "node_accept": 9,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1359.2326999641955,
+          "draft_ms": 1175.1147999893874,
+          "verify_ms": 162.84288024902344,
+          "tokens": 5,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1463.8056000694633,
+          "draft_ms": 1382.7558000339195,
+          "verify_ms": 60.41049575805664,
+          "tokens": 9,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1538.6741000693291,
+          "draft_ms": 1391.8835000367835,
+          "verify_ms": 125.8635482788086,
+          "tokens": 9,
+          "node_accept": 28,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1506.339699961245,
+          "draft_ms": 1394.6127999806777,
+          "verify_ms": 89.44598388671875,
+          "tokens": 1,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1505.140500026755,
+          "draft_ms": 1408.0916999373585,
+          "verify_ms": 77.32246398925781,
+          "tokens": 9,
+          "node_accept": 27,
+          "node_total": 32
+        }
+      ]
+    },
+    {
+      "text": "What is the boiling point of water at sea level? Also, can you explain why the boiling point of water is different at higher altitudes?\n\nThe boiling point of water at sea level is 100\u00b0C (212\u00b0F). This is because at sea level, the atmospheric pressure is 1 atmosphere (atm), and water boils when its vapor pressure equals the atmospheric pressure. \n\n",
+      "num_generated": 69,
+      "accepted_per_cycle": [
+        5,
+        7,
+        1,
+        3,
+        9,
+        9,
+        1,
+        1,
+        2,
+        4,
+        9,
+        2,
+        2,
+        3,
+        2,
+        3,
+        6
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 1995.3584999311715,
+          "draft_ms": 1678.9805999724194,
+          "verify_ms": 297.8484802246094,
+          "tokens": 5,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1255.0366000505164,
+          "draft_ms": 1174.38530002255,
+          "verify_ms": 60.069313049316406,
+          "tokens": 7,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1506.7485999315977,
+          "draft_ms": 1371.0398999974132,
+          "verify_ms": 116.31721496582031,
+          "tokens": 1,
+          "node_accept": 19,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1311.949499999173,
+          "draft_ms": 1203.405600041151,
+          "verify_ms": 87.98326110839844,
+          "tokens": 3,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1473.2156000100076,
+          "draft_ms": 1376.0432000271976,
+          "verify_ms": 77.90419006347656,
+          "tokens": 9,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1551.481100032106,
+          "draft_ms": 1390.2342999354005,
+          "verify_ms": 140.73960876464844,
+          "tokens": 9,
+          "node_accept": 22,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1456.534400000237,
+          "draft_ms": 1337.7356000710279,
+          "verify_ms": 97.87462615966797,
+          "tokens": 1,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1433.3964000688866,
+          "draft_ms": 1328.475599992089,
+          "verify_ms": 85.15846252441406,
+          "tokens": 1,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1634.9406000226736,
+          "draft_ms": 1381.9646999472752,
+          "verify_ms": 233.49346923828125,
+          "tokens": 2,
+          "node_accept": 19,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1478.6040999460965,
+          "draft_ms": 1398.2058999827132,
+          "verify_ms": 60.55440139770508,
+          "tokens": 4,
+          "node_accept": 20,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1495.7657000049949,
+          "draft_ms": 1360.313699929975,
+          "verify_ms": 114.85779571533203,
+          "tokens": 9,
+          "node_accept": 21,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1518.1205000262707,
+          "draft_ms": 1392.4052000511438,
+          "verify_ms": 105.00371551513672,
+          "tokens": 2,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1472.351499949582,
+          "draft_ms": 1365.295200026594,
+          "verify_ms": 86.01913452148438,
+          "tokens": 2,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1589.920499944128,
+          "draft_ms": 1414.3778999568895,
+          "verify_ms": 155.83062744140625,
+          "tokens": 3,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1489.5315000321716,
+          "draft_ms": 1376.9040999468416,
+          "verify_ms": 91.88915252685547,
+          "tokens": 2,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1072.5684000644833,
+          "draft_ms": 967.4431000603363,
+          "verify_ms": 84.54898834228516,
+          "tokens": 3,
+          "node_accept": 17,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1486.6896000457928,
+          "draft_ms": 1388.4939000708982,
+          "verify_ms": 77.66575622558594,
+          "tokens": 6,
+          "node_accept": 21,
+          "node_total": 32
+        }
+      ]
+    },
+    {
+      "text": "Summarize the plot of Romeo and Juliet in two sentences. Also, explain the significance of the prologue in the play. Then, explain the significance of the feud between the Montagues and Capulets. Next, explain the significance of the balcony scene. Finally, explain the significance of the final scene in the play.\n\n**Answer:**\n\n**Summary of the plot:**\nRomeo and Juliet is",
+      "num_generated": 70,
+      "accepted_per_cycle": [
+        4,
+        1,
+        3,
+        6,
+        7,
+        6,
+        4,
+        7,
+        9,
+        1,
+        2,
+        5,
+        4,
+        3,
+        8
+      ],
+      "eos": false,
+      "cycle_stats": [
+        {
+          "cycle_ms": 1947.486799908802,
+          "draft_ms": 1630.9675999218598,
+          "verify_ms": 297.1195373535156,
+          "tokens": 4,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1076.9380000419915,
+          "draft_ms": 985.3384000016376,
+          "verify_ms": 70.8482894897461,
+          "tokens": 1,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1340.0525000179186,
+          "draft_ms": 1210.4128999635577,
+          "verify_ms": 109.24720001220703,
+          "tokens": 3,
+          "node_accept": 16,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1585.9009999549016,
+          "draft_ms": 1392.6189000485465,
+          "verify_ms": 172.2612762451172,
+          "tokens": 6,
+          "node_accept": 14,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1312.5927000073716,
+          "draft_ms": 1178.1737999990582,
+          "verify_ms": 113.3921890258789,
+          "tokens": 7,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1458.7690000189468,
+          "draft_ms": 1351.4693999895826,
+          "verify_ms": 86.5889892578125,
+          "tokens": 6,
+          "node_accept": 23,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1490.3096000198275,
+          "draft_ms": 1384.7033999627456,
+          "verify_ms": 85.5321273803711,
+          "tokens": 4,
+          "node_accept": 18,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1283.976300037466,
+          "draft_ms": 1187.209099996835,
+          "verify_ms": 75.6244125366211,
+          "tokens": 7,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1537.577599985525,
+          "draft_ms": 1376.2098000152037,
+          "verify_ms": 139.48483276367188,
+          "tokens": 9,
+          "node_accept": 19,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1309.9037000210956,
+          "draft_ms": 1187.3157999943942,
+          "verify_ms": 100.83148956298828,
+          "tokens": 1,
+          "node_accept": 15,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1371.8869999283925,
+          "draft_ms": 1181.453499943018,
+          "verify_ms": 169.4015655517578,
+          "tokens": 2,
+          "node_accept": 12,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1451.7923999810591,
+          "draft_ms": 1370.6932000350207,
+          "verify_ms": 60.36307144165039,
+          "tokens": 5,
+          "node_accept": 21,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1530.7477000169456,
+          "draft_ms": 1379.7026999527588,
+          "verify_ms": 127.56448364257812,
+          "tokens": 4,
+          "node_accept": 13,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1469.7382999584079,
+          "draft_ms": 1360.199399990961,
+          "verify_ms": 88.27827453613281,
+          "tokens": 3,
+          "node_accept": 22,
+          "node_total": 32
+        },
+        {
+          "cycle_ms": 1557.845100061968,
+          "draft_ms": 1362.1332000475377,
+          "verify_ms": 174.66819763183594,
+          "tokens": 8,
+          "node_accept": 25,
+          "node_total": 32
+        }
+      ]
+    }
+  ]
+}
