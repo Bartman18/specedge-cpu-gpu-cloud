@@ -108,9 +108,7 @@ Configuration: M0 = Qwen3-0.6B (bf16, CPU) → M1 = Qwen3-4B (fp16, RTX 3060 12 
 The acceptance rate (~50%, i.e. 4.6 tokens per M1 forward) confirms the method works,
 but the measurements clearly locate the bottleneck: **the CPU drafter M0 (1313 ms) is
 ~10× slower than the GPU verifier M1 (125 ms)** and consumes ~90% of each cycle, so net
-throughput (3.27 tok/s) is limited by M0, not by guess quality. The next steps are to
-speed up M0 (e.g. with a quantized `llama.cpp` backend), attach M2 in the cloud, and then
-overlap drafting with the network round-trip via proactive drafting.
+throughput (3.27 tok/s) is limited by M0, not by guess quality. 
 
 ## Citation
 
