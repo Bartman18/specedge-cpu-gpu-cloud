@@ -27,8 +27,7 @@ the expensive model — but extended to an explicit three-level hierarchy:
 > **Key finding:** the cascade is correct and lossless, but its **bottleneck is the CPU
 > drafter (M0)**. On the measured setup M0 on CPU takes ~1300 ms per cycle versus ~125 ms
 > for the M1 GPU verify — about **10× slower**, consuming ~90% of each cycle and capping
-> end-to-end throughput regardless of how good the guesses are. Speeding up M0 (e.g. a
-> quantized `llama.cpp` CPU backend) is the main lever for further gains.
+> end-to-end throughput regardless of how good the guesses are. 
 
 - **M0 — drafter (CPU).** The smallest model (e.g. `Qwen/Qwen3-0.6B`) builds a *tree*
   of candidate tokens locally. Instead of one continuation it expands many branches at
