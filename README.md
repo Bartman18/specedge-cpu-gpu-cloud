@@ -110,6 +110,32 @@ but the measurements clearly locate the bottleneck: **the CPU drafter M0 (1313 m
 ~10× slower than the GPU verifier M1 (125 ms)** and consumes ~90% of each cycle, so net
 throughput (3.27 tok/s) is limited by M0, not by guess quality. 
 
+## Reproduction on WCSS 
+
+Reproduce the 3-tier cascade on the WCSS LEM cluster. Run everything from the
+`specedge/` directory; the `wcss/Makefile.cloud3` targets wrap SLURM submission and
+metrics. See `wcss/README_cloud3.md` for the full details.
+
+```bash
+# 1. Set up on the login node (ui.wcss.pl)
+git clone <repo-url> specedge
+cd specedge
+uv sync                                       # creates .venv from pyproject.toml / uv.lock
+
+# 2. Submit the job (M2 target defaults to Qwen/Qwen3-14B)
+make -f wcss/Makefile.cloud3 help             # list targets and variables
+make -f wcss/Makefile.cloud3 submit           # sbatch wcss/slurm/cloud3.sbatch
+make -f wcss/Makefile.cloud3 submit TARGET=Qwen/Qwen3-32B   # different target
+
+# 3. Wait for the job to finish
+make -f wcss/Makefile.cloud3 status           # SLURM queue (squeue --me)
+make -f wcss/Makefile.cloud3 logs             # tail the latest cloud3 job log
+
+# 4. Collect metrics once the job is done (EXP = run name = SLURM job id)
+make -f wcss/Makefile.cloud3 metrics EXP=<job_id>
+
+
+
 ## Citation
 
 If you use this work, please cite the original SpecEdge paper by its authors:
